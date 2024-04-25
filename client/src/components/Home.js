@@ -6,11 +6,12 @@ import { useUserAuth } from "../context/UserAuthContext";
 import RegistrationForm from "./RegistrationForm";
 import '/home/soham/SE Projects 3/test3/with_phone/client/src/css/homepage.css'
 import customNavbar from './customNavbar'
+import ChatPage from "./ChatPage";
 
 import a3 from '/home/soham/SE Projects 3/test3/with_phone/client/src/images/a3.jpg'
 import a4 from '/home/soham/SE Projects 3/test3/with_phone/client/src/images/a4.jpg'
 import a5 from '/home/soham/SE Projects 3/test3/with_phone/client/src/images/a5.jpg'
-
+import I5 from '/home/soham/SE Projects 3/test3/with_phone/client/src/images/I5.png'
 const Home = () => {
   const [name, setName] = useState(localStorage.getItem('userName') || '');
   const { logOut, user } = useUserAuth();
@@ -41,8 +42,10 @@ const Home = () => {
     
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">
-      Navbar
+    <a className="navbar-brand" href="/home">
+      
+    <img src={I5} alt="Image not found" style={{ maxWidth: '15%', height: 'auto' }} />
+      <p>Legal Assist</p>
     </a>
     <button
       className="navbar-toggler"
@@ -58,13 +61,13 @@ const Home = () => {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">
+          <a className="nav-link active" aria-current="page" href="/home">
             Home
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
-            Link
+          <a className="nav-link" href="/registrationform">
+            Registration
           </a>
         </li>
         <li className="nav-item dropdown">
@@ -75,46 +78,37 @@ const Home = () => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Dropdown
+            Chatbot
           </a>
           <ul className="dropdown-menu">
             <li>
-              <a className="dropdown-item" href="#">
-                Action
+              <a className="dropdown-item" href="/chatpage">
+                Chat With Us
               </a>
             </li>
             <li>
-              <a className="dropdown-item" href="#">
-                Another action
+              <a className="dropdown-item" href="/viewchat">
+                View chat History
               </a>
             </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
+            
           </ul>
         </li>
-        <li className="nav-item">
-          <a className="nav-link disabled" aria-disabled="true">
-            Disabled
-          </a>
-        </li>
+        
       </ul>
-      <form className="d-flex" role="search">
-        <input
-          className="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button className="btn btn-outline-success" type="submit">
-          Search
-        </button>
-      </form>
+      <form className="d-flex" role="search" action="https://www.google.com/search" method="get" target="_blank">
+    <input
+        className="form-control me-2"
+        type="search"
+        name="q" // Name attribute for the search query parameter
+        placeholder="Search on Google"
+        aria-label="Search"
+    />
+    <button className="btn btn-outline-success" type="submit">
+        Search
+    </button>
+</form>
+
     </div>
   </div>
 </nav>
@@ -135,26 +129,26 @@ style={{
   
 
 
-<div className="p-4 box mt-3 text-center">
-        Hello  {name}
-        {user && user.email}
-        
-      </div>
+      <div className="p-4 box mt-3 text-center" style={{ fontSize: '24px', backgroundColor: 'skyblue' }}>
+    Hello {name}
+    {user && user.email}
+</div>
 
 
 
-<div className="midpart">
+
+<div className="midpart" style={{marginTop:"60px",     justifyContent:"space-evenly"}}>
 
 
 <div className="card" style={{ width: "18rem" }}>
   <img src={a3} className="card-img-top" alt="..." />
   <div className="card-body">
-    <h5 className="card-title">Judgement Discovery</h5>
+    <h5 className="card-title">Chat With Us...</h5>
     <p className="card-text">
-      Uncover insightful judgement with...
+      Uncover insightful judgement with our Chatbot...
     </p>
-    <a href="#" className="btn btn-primary">
-      Go somewhere
+    <a href="/chatpage" className="btn btn-primary">
+      ChatPage
     </a>
   </div>
 </div>
@@ -174,29 +168,18 @@ style={{
 <div className="card" style={{ width: "18rem" }}>
   <img src={a5} className="card-img-top" alt="..." />
   <div className="card-body">
-    <h5 className="card-title">Contrast drafting</h5>
+    <h5 className="card-title">View Chat History</h5>
     <p className="card-text">
-    AI powered contextual search...
+    Go through the Chat History
     </p>
-    <a href="#" className="btn btn-primary">
-      Go somewhere
+    <a href="/viewchat" className="btn btn-primary">
+      Chat History
     </a>
   </div>
 </div>
 
 
-<div className="card" style={{ width: "18rem" }}>
-  <img src={a5} className="card-img-top" alt="..." />
-  <div className="card-body">
-    <h5 className="card-title">Contrast drafting</h5>
-    <p className="card-text">
-    AI powered contextual search...
-    </p>
-    <a href="#" className="btn btn-primary">
-      Go somewhere
-    </a>
-  </div>
-</div>
+
 
 
 

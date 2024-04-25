@@ -10,6 +10,8 @@ import RegistrationForm from "./components/RegistrationForm";
 import ChatPage from "./components/ChatPage";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ViewChat from "./components/ViewChat";
+
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
                 <Route path="/registrationform" element={<RegistrationForm/>}/>
                 <Route path="/navbar" element={<Navbar/>}/>
                 <Route path="/chatpage" element={<ChatPage/>}/>
+                <Route path="viewchat" element={<ViewChat/>}/>
                 
               </Routes>
             </UserAuthContextProvider>
